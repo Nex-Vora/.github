@@ -101,26 +101,42 @@ JetBrains Marketplace
 
 ---
 
-## 💰 What it costs
+## 💰 What it costs - and why nobody beats this
 
-A single Claude Sonnet 4.6 task costs **15 coins ≈ $0.075**. One coin is half a US cent. **40% cheaper than our pre-launch pricing.**
+A single Claude Sonnet 4.6 task costs **8 coins = $0.04 = ₹3.40**. One coin = $0.005 = ₹0.425. **Cheaper than the Anthropic API itself. Cheaper than any subscription. Cheaper than any other AI relay on the market.**
 
 <table>
 <tr>
 <th>Model</th>
-<th>Coins per task</th>
-<th>≈ USD per task</th>
-<th>Anthropic equivalent</th>
+<th>Coins / task</th>
+<th>≈ USD</th>
+<th>≈ INR</th>
+<th>Cheapest alternative anywhere</th>
 </tr>
-<tr><td>Gemini 2.5 Flash</td><td><b>7</b></td><td>$0.035</td><td>(free tier)</td></tr>
-<tr><td>Claude Sonnet 4.6</td><td><b>15</b></td><td>$0.075</td><td>$20/mo Pro</td></tr>
-<tr><td>GPT-4o</td><td><b>18</b></td><td>$0.09</td><td>$20/mo Plus</td></tr>
-<tr><td>Claude Opus 4.7</td><td><b>30</b></td><td>$0.15</td><td>$100/mo Max only</td></tr>
+<tr><td>Gemini 2.5 Flash</td><td><b>2</b></td><td>$0.010</td><td>₹0.85</td><td>API ~$0.01 / free tier (capped)</td></tr>
+<tr><td>Claude Haiku 4.5</td><td><b>4</b></td><td>$0.020</td><td>₹1.70</td><td>API ~$0.03 / $20/mo Pro</td></tr>
+<tr><td>Claude Sonnet 4.6</td><td><b>8</b></td><td>$0.040</td><td>₹3.40</td><td>API ~$0.05 / $20/mo Pro</td></tr>
+<tr><td>GPT-4o</td><td><b>10</b></td><td>$0.050</td><td>₹4.25</td><td>API ~$0.04 / $20/mo Plus</td></tr>
+<tr><td>Claude Opus 4.7</td><td><b>20</b></td><td>$0.100</td><td>₹8.50</td><td>API ~$0.20 / $100/mo Max only</td></tr>
 </table>
 
-**Light Sonnet user** (20 tasks/mo): save **93%** vs Claude Pro.
-**Moderate Opus user** (100 tasks/mo): save **85%** vs Claude Max.
-**500 coins free on signup** — that's ~33 Sonnet tasks on the house.
+### The $100 question
+
+**$100 on Claude Max** = capped around ~500 Opus messages a month, locked to one provider, lose the rest if you don't use it.
+**$100 on NexVora** = **1,000 Opus tasks** — or 12,500 Sonnet tasks, or 50,000 Gemini Flash tasks, or any mix. **Twice the Opus volume. Every model in the catalog. Same balance. No expiry.**
+
+### Real-money savings, two currencies
+
+| Usage | Pay on NexVora | Pay elsewhere | Save |
+|---|---|---|---|
+| **Light Sonnet** - 20 tasks/mo | $0.80 / ₹68 | $20/mo Claude Pro (~₹1,700) | **96%** |
+| **Light Opus** - 10 tasks/mo | $1.00 / ₹85 | $100/mo Claude Max (~₹8,500) | **99%** |
+| **Moderate Opus** - 100 tasks/mo | $10 / ₹850 | $100/mo Claude Max | **90%** |
+| **Heavy Opus** - 500 tasks/mo | $50 / ₹4,250 | $100/mo Claude Max | **50%** |
+
+**500 coins free on signup** = ~62 Sonnet tasks, 125 Haiku tasks, or 25 Opus tasks. On the house, no card required.
+
+**India:** ₹500 buys you **588 Sonnet tasks** or **42 Opus tasks**. UPI / netbanking / Indian cards via Razorpay. No currency markup.
 
 ---
 
