@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four ways NexVora delivers Claude: MCP host, CLI, web chat, and IDE plugin.">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#13133b"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f0abfc"/>
+    </linearGradient>
+    <linearGradient id="cyan2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bg2)"/>
+
+  <text x="600" y="60" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">
+    Same Claude. Without paying Anthropic.
+  </text>
+  <text x="600" y="92" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
+    Four ways NexVora delivers Claude to you. Zero Anthropic subscription required.
+  </text>
+
+  <!-- Card 1: MCP HOST -->
+  <g transform="translate(30, 140)">
+    <rect x="0" y="0" width="270" height="280" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="135" y="40" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#22d3ee" text-anchor="middle" letter-spacing="2">VIA MCP HOST</text>
+    <text x="135" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Drop into the tool</text>
+    <text x="135" y="106" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">you already use</text>
+
+    <line x1="30" y1="130" x2="240" y2="130" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="158">Claude Code, Cursor, Cline,</text>
+      <text x="30" y="176">Continue, Copilot, Zed</text>
+      <text x="30" y="208" fill="#22d3ee" font-weight="600" font-family="JetBrains Mono, monospace" font-size="11">npm i -g @nexvora/mcp-server</text>
+      <text x="30" y="230" fill="#94a3b8">paste PAT or nexvora login</text>
+    </g>
+
+    <g transform="translate(30, 245)">
+      <rect width="100" height="22" rx="11" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee" stroke-width="1"/>
+      <text x="50" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">LIVE NOW</text>
+    </g>
+  </g>
+
+  <!-- Card 2: CLI -->
+  <g transform="translate(320, 140)">
+    <rect x="0" y="0" width="270" height="280" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="135" y="40" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle" letter-spacing="2">VIA CLI</text>
+    <text x="135" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Pipe Claude into</text>
+    <text x="135" y="106" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">your shell.</text>
+
+    <line x1="30" y1="130" x2="240" y2="130" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="158">Scripts. CI runners. SSH boxes.</text>
+      <text x="30" y="176">Composable with pipes and jq.</text>
+      <text x="30" y="208" fill="#34d399" font-weight="600" font-family="JetBrains Mono, monospace" font-size="11">nexvora ask "fix this..."</text>
+      <text x="30" y="230" fill="#94a3b8">pipe stdout to anything</text>
+    </g>
+
+    <g transform="translate(30, 245)">
+      <rect width="100" height="22" rx="11" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-width="1"/>
+      <text x="50" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">LIVE NOW</text>
+    </g>
+  </g>
+
+  <!-- Card 3: WEB CHAT -->
+  <g transform="translate(610, 140)">
+    <rect x="0" y="0" width="270" height="280" rx="16" fill="#1e293b" stroke="url(#accent2)" stroke-width="2"/>
+    <text x="135" y="40" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle" letter-spacing="2">VIA WEB CHAT</text>
+    <text x="135" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Open a browser.</text>
+    <text x="135" y="106" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Start chatting.</text>
+
+    <line x1="30" y1="130" x2="240" y2="130" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="158">Zero install. Mobile-friendly.</text>
+      <text x="30" y="176">Chats persist across devices.</text>
+      <text x="30" y="208" fill="#a78bfa" font-weight="600" font-family="JetBrains Mono, monospace" font-size="11">app.nexvora.io/chat</text>
+      <text x="30" y="230" fill="#94a3b8">sign in, buy coins, send</text>
+    </g>
+
+    <g transform="translate(30, 245)">
+      <rect width="150" height="22" rx="11" fill="#a78bfa" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1"/>
+      <text x="75" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#a78bfa" text-anchor="middle">LAUNCHING 25 MAY</text>
+    </g>
+  </g>
+
+  <!-- Card 4: IDE PLUGIN -->
+  <g transform="translate(900, 140)">
+    <rect x="0" y="0" width="270" height="280" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="135" y="40" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#f0abfc" text-anchor="middle" letter-spacing="2">VIA IDE PLUGIN</text>
+    <text x="135" y="80" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Native in your</text>
+    <text x="135" y="106" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">editor.</text>
+
+    <line x1="30" y1="130" x2="240" y2="130" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="158">IntelliJ first. VS Code follows.</text>
+      <text x="30" y="176">Chat panel + right-click actions.</text>
+      <text x="30" y="208" fill="#f0abfc" font-weight="600" font-family="JetBrains Mono, monospace" font-size="11">JetBrains + OpenVSX</text>
+      <text x="30" y="230" fill="#94a3b8">paste PAT, ask inline</text>
+    </g>
+
+    <g transform="translate(30, 245)">
+      <rect width="130" height="22" rx="11" fill="#f0abfc" fill-opacity="0.15" stroke="#f0abfc" stroke-width="1"/>
+      <text x="65" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#f0abfc" text-anchor="middle">ROADMAP Q3 2026</text>
+    </g>
+  </g>
+
+  <g transform="translate(0, 445)">
+    <text x="600" y="0" font-family="JetBrains Mono, Menlo, monospace" font-size="13" fill="#64748b" text-anchor="middle">
+      every path -&gt; one relay -&gt; one coin balance -&gt; one donor pool
+    </text>
+  </g>
+</svg>

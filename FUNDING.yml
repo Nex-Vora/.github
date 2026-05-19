@@ -1,0 +1,22 @@
+# Nex-Vora/.github/FUNDING.yml
+#
+# Sits at the ROOT of the `Nex-Vora/.github` repository (not inside any
+# subfolder). Powers the "Sponsor" button on every repo across the org.
+#
+# Max 4 entries across all platforms combined. Edit any time - changes
+# go live within a few minutes of merging to the default branch.
+#
+# Docs:
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# Custom URLs - all visible to visitors who click the "Sponsor" button.
+# Ordered most-to-least preferred funnel.
+custom:
+  - https://app.nexvora.io/waitlist           # Join the closed beta as a user
+  - https://app.nexvora.io/donors/apply       # Become a donor and earn coins
+  - https://nexvora.io                        # Main product page
+
+# To enable GitHub Sponsors (recurring monthly tips for the maintainer),
+# first set up a sponsor profile at https://github.com/sponsors, then
+# uncomment the line below with your handle.
+# github: [bunty]
