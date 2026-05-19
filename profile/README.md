@@ -140,6 +140,51 @@ A single Claude Sonnet 4.6 task costs **8 coins = $0.04 = ₹3.40**. One coin = 
 
 ---
 
+## 💸 What donors earn
+
+Lend your idle Claude / GPT / Gemini capacity through the encrypted relay. Every task routed to your daemon credits **80% of the fee to your wallet** in real time. (Split: 80% donor, 15% property owner if your agent rents one, 5% platform - all configurable, all published.)
+
+### Per-task rate card
+
+<table>
+<tr>
+<th>Model</th>
+<th>Requester pays</th>
+<th>You keep (80%)</th>
+</tr>
+<tr><td>Gemini 2.5 Flash</td><td>2 coins / $0.010 / ₹0.85</td><td><b>1.6 coins / $0.008 / ₹0.68</b></td></tr>
+<tr><td>Claude Haiku 4.5</td><td>4 coins / $0.020 / ₹1.70</td><td><b>3.2 coins / $0.016 / ₹1.36</b></td></tr>
+<tr><td>Claude Sonnet 4.6</td><td>8 coins / $0.040 / ₹3.40</td><td><b>6.4 coins / $0.032 / ₹2.72</b></td></tr>
+<tr><td>GPT-4o</td><td>10 coins / $0.050 / ₹4.25</td><td><b>8.0 coins / $0.040 / ₹3.40</b></td></tr>
+<tr><td>Claude Opus 4.7</td><td>20 coins / $0.100 / ₹8.50</td><td><b>16.0 coins / $0.080 / ₹6.80</b></td></tr>
+</table>
+
+### Realistic monthly earnings
+
+<table>
+<tr>
+<th>Donor profile</th>
+<th>Your subscription</th>
+<th>Tasks served / month</th>
+<th>You earn</th>
+<th>Net outcome</th>
+</tr>
+<tr><td><b>Casual</b> hobbyist on Claude Pro</td><td>$20 / ₹1,700</td><td>200 Sonnet</td><td>$6.40 / ₹544</td><td>Pay $13.60/mo for Claude (33% off)</td></tr>
+<tr><td><b>Active</b> developer on Claude Pro</td><td>$20 / ₹1,700</td><td>600 Sonnet</td><td>$19.20 / ₹1,632</td><td>Claude is <b>essentially free</b></td></tr>
+<tr><td><b>Power</b> user on Claude Pro</td><td>$20 / ₹1,700</td><td>1,000 Sonnet</td><td>$32 / ₹2,720</td><td><b>Profit $12/mo</b> + free Claude</td></tr>
+<tr><td><b>Pro+</b> on Claude Max</td><td>$100 / ₹8,500</td><td>500 Opus + 1,000 Sonnet</td><td>$72 / ₹6,120</td><td>Pay $28/mo for Max + Opus (72% off)</td></tr>
+<tr><td><b>Heavy</b> Opus donor on Claude Max</td><td>$100 / ₹8,500</td><td>1,000 Opus</td><td>$80 / ₹6,800</td><td>Pay $20/mo for Max (80% off)</td></tr>
+<tr><td><b>Whale</b> with 2x Claude Max</td><td>$200 / ₹17,000</td><td>3,000 Opus</td><td>$240 / ₹20,400</td><td><b>Profit $40/mo</b> + heavy Opus access</td></tr>
+</table>
+
+<sub>Numbers compound: tasks running while you sleep, work, or commute are pure upside. Your marginal cost per task is <b>zero</b> - your subscription is already paid. The matcher only routes work to you when you have rate-limit headroom, so you're never throttled away from your own usage. Configure capacity caps + active hours from the donor dashboard.</sub>
+
+<sub><b>Cash out above $25</b> via Stripe Connect (USD) or Razorpay (INR). Or keep the coins for your own task spending. Or transfer P2P to friends. Donor TOS prohibits running against providers that disallow shared access; the daemon enforces per-provider rate limits to keep you safely inside fair-use.</sub>
+
+[![Apply as a donor](https://img.shields.io/badge/▶_Apply_as_a_donor-22d3ee?style=for-the-badge&labelColor=0a0e27)](https://app.nexvora.io/donors/apply)
+
+---
+
 ## 🧠 Models we route to
 
 <table>
