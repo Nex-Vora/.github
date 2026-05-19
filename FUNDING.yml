@@ -12,9 +12,9 @@
 # Custom URLs - all visible to visitors who click the "Sponsor" button.
 # Ordered most-to-least preferred funnel.
 custom:
-  - https://app.nexvora.io/waitlist           # Join the closed beta as a user
-  - https://app.nexvora.io/donors/apply       # Become a donor and earn coins
-  - https://nexvora.io                        # Main product page
+  - https://app.nxvora.online/waitlist           # Join the closed beta as a user
+  - https://app.nxvora.online/donors/apply       # Become a donor and earn coins
+  - https://nxvora.online                        # Main product page
 
 # To enable GitHub Sponsors (recurring monthly tips for the maintainer),
 # first set up a sponsor profile at https://github.com/sponsors, then
