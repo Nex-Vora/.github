@@ -1,0 +1,155 @@
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End-to-end encrypted flow: your daemon, the relay (which sees only ciphertext), and the donor's daemon.">
+  <defs>
+    <linearGradient id="bg-sec" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#13133b"/>
+      <stop offset="100%" stop-color="#1e0a3c"/>
+    </linearGradient>
+    <linearGradient id="flow-out" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f0abfc"/>
+    </linearGradient>
+    <pattern id="grid-sec" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bg-sec)"/>
+  <rect width="1200" height="680" fill="url(#grid-sec)"/>
+
+  <text x="600" y="42" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">
+    End-to-end encrypted by design
+  </text>
+  <text x="600" y="68" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    The relay forwards opaque frames. The session key dies with the task. Tool calls bounce back to your machine.
+  </text>
+
+  <!-- YOU column -->
+  <g transform="translate(50, 110)">
+    <rect width="320" height="320" rx="16" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="160" y="38" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="middle" letter-spacing="3">YOU</text>
+    <text x="160" y="60" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">your machine, your daemon</text>
+
+    <g transform="translate(130, 78)">
+      <rect x="0" y="0" width="60" height="42" rx="5" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="-8" y="42" width="76" height="5" rx="2" fill="#22d3ee"/>
+      <text x="30" y="27" font-family="JetBrains Mono, monospace" font-size="9" fill="#22d3ee" text-anchor="middle">~/.claude</text>
+    </g>
+
+    <line x1="30" y1="148" x2="290" y2="148" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="172">- CLAUDE.md (project + user)</text>
+      <text x="30" y="192">- Hooks &amp; Skills</text>
+      <text x="30" y="212">- MCP tool catalog</text>
+      <text x="30" y="232">- Conversation history</text>
+      <text x="30" y="252">- ed25519 device key (keychain)</text>
+      <text x="30" y="272">- Per-task X25519 (RAM only)</text>
+    </g>
+
+    <g transform="translate(30, 285)">
+      <rect width="260" height="22" rx="11" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee" stroke-width="1"/>
+      <text x="130" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">session key in RAM only</text>
+    </g>
+  </g>
+
+  <!-- Arrow YOU -> RELAY -->
+  <g>
+    <line x1="375" y1="270" x2="445" y2="270" stroke="url(#flow-out)" stroke-width="3" stroke-dasharray="8 4">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="445,265 445,275 455,270" fill="#a78bfa"/>
+    <text x="410" y="258" font-family="JetBrains Mono, monospace" font-size="10" fill="#a78bfa" text-anchor="middle">cipher</text>
+    <text x="410" y="290" font-family="JetBrains Mono, monospace" font-size="9" fill="#64748b" text-anchor="middle">signed</text>
+  </g>
+
+  <!-- RELAY column -->
+  <g transform="translate(450, 110)">
+    <rect width="320" height="320" rx="16" fill="#1e293b" stroke="url(#flow-out)" stroke-width="2"/>
+    <text x="160" y="38" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#a78bfa" text-anchor="middle" letter-spacing="3">NEXVORA RELAY</text>
+    <text x="160" y="60" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">routes opaque ciphertext</text>
+
+    <g transform="translate(130, 78)">
+      <rect x="0" y="0" width="60" height="42" rx="5" fill="none" stroke="#a78bfa" stroke-width="2"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#a78bfa" stroke-width="2"/>
+      <line x1="8" y1="26" x2="40" y2="26" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="48" cy="21" r="6" fill="#a78bfa" fill-opacity="0.3" stroke="#a78bfa" stroke-width="2"/>
+      <rect x="45" y="25" width="6" height="9" fill="#a78bfa"/>
+    </g>
+
+    <line x1="30" y1="148" x2="290" y2="148" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="172">- Forwards opaque frames</text>
+      <text x="30" y="192">- Routes by delegation_id</text>
+      <text x="30" y="212">- Verifies ed25519 signatures</text>
+      <text x="30" y="232">- Holds ZERO key material</text>
+      <text x="30" y="252">- Never derives a session key</text>
+      <text x="30" y="272">- Never decrypts a single byte</text>
+    </g>
+
+    <g transform="translate(30, 285)">
+      <rect width="260" height="22" rx="11" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1"/>
+      <text x="130" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#a78bfa" text-anchor="middle">sees nothing in plaintext, ever</text>
+    </g>
+  </g>
+
+  <!-- Arrow RELAY -> DONOR -->
+  <g>
+    <line x1="775" y1="270" x2="845" y2="270" stroke="url(#flow-out)" stroke-width="3" stroke-dasharray="8 4">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="845,265 845,275 855,270" fill="#f0abfc"/>
+    <text x="810" y="258" font-family="JetBrains Mono, monospace" font-size="10" fill="#f0abfc" text-anchor="middle">cipher</text>
+    <text x="810" y="290" font-family="JetBrains Mono, monospace" font-size="9" fill="#64748b" text-anchor="middle">signed</text>
+  </g>
+
+  <!-- DONOR column -->
+  <g transform="translate(850, 110)">
+    <rect width="320" height="320" rx="16" fill="#1e293b" stroke="#f0abfc" stroke-width="2"/>
+    <text x="160" y="38" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#f0abfc" text-anchor="middle" letter-spacing="3">DONOR</text>
+    <text x="160" y="60" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">their machine, their Claude</text>
+
+    <g transform="translate(130, 78)">
+      <rect x="0" y="0" width="60" height="42" rx="5" fill="none" stroke="#f0abfc" stroke-width="2"/>
+      <text x="30" y="27" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#f0abfc" text-anchor="middle">Claude</text>
+    </g>
+
+    <line x1="30" y1="148" x2="290" y2="148" stroke="#334155" stroke-width="1"/>
+
+    <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">
+      <text x="30" y="172">- Their Claude Pro / Max sub</text>
+      <text x="30" y="192">- ed25519 device key (keychain)</text>
+      <text x="30" y="212">- Per-task X25519 (RAM only)</text>
+      <text x="30" y="232">- Decrypts the bundle</text>
+      <text x="30" y="252">- Runs Claude, encrypts result</text>
+      <text x="30" y="272">- Wipes all keys at task end</text>
+    </g>
+
+    <g transform="translate(30, 285)">
+      <rect width="260" height="22" rx="11" fill="#f0abfc" fill-opacity="0.15" stroke="#f0abfc" stroke-width="1"/>
+      <text x="130" y="15" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#f0abfc" text-anchor="middle">your prompt, their compute</text>
+    </g>
+  </g>
+
+  <!-- 4-stage handshake -->
+  <g transform="translate(50, 460)">
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#94a3b8" letter-spacing="2">THE 4-STAGE HANDSHAKE</text>
+
+    <g transform="translate(0, 20)" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#cbd5e1">
+      <text x="0" y="14"><tspan font-weight="700" fill="#22d3ee">1. PAIR</tspan>     daemons exchange per-task X25519 pubkeys, signed by long-lived ed25519 device keys</text>
+      <text x="0" y="34"><tspan font-weight="700" fill="#a78bfa">2. DERIVE</tspan>   both sides run HKDF-SHA256 on the shared secret to derive identical session keys; relay sees neither</text>
+      <text x="0" y="54"><tspan font-weight="700" fill="#f0abfc">3. ENCRYPT</tspan>  XSalsa20-Poly1305 authenticated encryption on every prompt, result, and tool call</text>
+      <text x="0" y="74"><tspan font-weight="700" fill="#34d399">4. DISCARD</tspan>  task ends; both ephemeral keypairs wiped from RAM; session key dies with them</text>
+    </g>
+  </g>
+
+  <!-- Tool-call back channel -->
+  <g transform="translate(50, 600)">
+    <rect x="0" y="0" width="1100" height="60" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="20" y="22" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#34d399">TOOL-CALL BACK CHANNEL</text>
+    <text x="20" y="42" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#cbd5e1">Donor's Claude requests read_file / edit_file / bash / mcp_call -&gt; encrypted ToolCallRequest -&gt; your daemon checks allowlist -&gt; runs locally -&gt; encrypted response back</text>
+    <text x="20" y="56" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#94a3b8">Your code, your shell, your secrets - never leave your machine. The donor is rented inference; the body is yours.</text>
+  </g>
+</svg>

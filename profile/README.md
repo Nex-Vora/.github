@@ -238,9 +238,108 @@ We publish one quarter at a time. The roadmap is a calendar, not a wishlist.
 
 ---
 
-## 🔐 The thing nobody else does
+## 🔐 How we keep it private — and what we never see
 
-Every prompt is end-to-end encrypted between you and the donor. X25519 + HKDF-SHA256 + XSalsa20-Poly1305. We brokered the connection. We settled the coins. **We never saw your prompt.**
+<div align="center">
+
+<img src="assets/security-flow.svg" alt="End-to-end encrypted flow: your daemon, the relay which sees only ciphertext, and the donor's daemon." width="100%"/>
+
+</div>
+
+Most "AI middleware" sees every prompt that flows through it. NexVora is built so we **can't** — by design, not by promise. The relay forwards opaque frames between your daemon and the donor's daemon, signed by long-lived ed25519 device keys but encrypted with a per-task session key that **never touches our servers**.
+
+### What gets sent — the ContextBundle
+
+For the donor's Claude to do the same quality work yours would, it needs more than the raw prompt. Every NexVora task ships a **ContextBundle** sealed with the per-task session key, opaque to the relay, decrypted only on the donor's machine:
+
+<table>
+<tr>
+<th align="left">Element</th>
+<th align="left">Source</th>
+<th align="left">Why donors need it</th>
+</tr>
+<tr><td>Project <code>CLAUDE.md</code></td><td><code>${workdir}/CLAUDE.md</code></td><td>Project rules, conventions, build commands</td></tr>
+<tr><td>User-global <code>CLAUDE.md</code></td><td><code>~/.claude/CLAUDE.md</code></td><td>Your personal coding preferences</td></tr>
+<tr><td>Hooks</td><td><code>${workdir}/.claude/hooks/*.json</code></td><td>Pre / post-commit, custom workflows</td></tr>
+<tr><td>Skills</td><td><code>${workdir}/.claude/skills/*/SKILL.md</code></td><td>Your custom skill library</td></tr>
+<tr><td>MCP tool catalog</td><td>Host's <code>tools/list</code></td><td>Which tools the donor's Claude can invoke</td></tr>
+<tr><td>Conversation history</td><td>Active session (v2.1 via host sampling)</td><td>Continuity across turns</td></tr>
+<tr><td>Workspace metadata</td><td>Paths, language, framework</td><td>"What kind of project is this?"</td></tr>
+</table>
+
+The donor's Claude reads your project the same way your local Claude would — but the bundle is ciphertext to everyone except the donor's daemon.
+
+### How each surface secures the bundle
+
+All surfaces produce **byte-identical ciphertext** under the same session key, so any donor can decrypt bundles from any path with the same code:
+
+<table>
+<tr>
+<th align="left">Surface</th>
+<th align="left">Local component</th>
+<th align="left">What goes in the bundle</th>
+</tr>
+<tr><td><b>MCP host</b> (Claude Code, Cursor, Cline, etc.)</td><td><code>@nexvora/mcp-server</code> (Node)</td><td>Prompt + project rules + tool catalog (+ history in v2.1)</td></tr>
+<tr><td><b>CLI / scripts / CI</b></td><td><code>@nexvora/cli</code> + Rust daemon</td><td>Prompt + full ContextBundle + conversation history</td></tr>
+<tr><td><b>Web chat</b></td><td>Browser (WebCrypto API)</td><td>Prompt + lightweight bundle + history</td></tr>
+<tr><td><b>IDE plugin</b> (Q3 2026)</td><td>JetBrains / VS Code plugin + Rust daemon</td><td>Same as CLI + right-click code context</td></tr>
+</table>
+
+### The tool-call back channel — nobody else does this
+
+When the donor's Claude needs to **read your files**, **run a shell command**, or **call an MCP tool**, that call doesn't happen on the donor's machine. It bounces **back to your machine** through the same encrypted tunnel:
+
+```
+donor's Claude wants to run `git status`
+                ↓ encrypted ToolCallRequest
+       NexVora Relay (forwards opaque bytes)
+                ↓
+        your daemon (checks allowlist)
+                ↓
+       runs `git status` locally on your machine
+                ↓
+        encrypted ToolCallResponse → donor's Claude continues
+```
+
+The donor's Claude **only ever sees the text you sent and the text your local tools returned**. No filesystem access. No shell access. No env vars. No SSH keys. The donor is a brain you rent for inference; the body is yours.
+
+Four tools are surfaced through the tunnel, each gated by an explicit allowlist you set per delegation:
+
+<table>
+<tr>
+<th align="left">Tool</th>
+<th align="left">Where it runs</th>
+<th align="left">Allowlist rule</th>
+</tr>
+<tr><td><code>read_file(path)</code></td><td>Your machine via <code>tokio::fs::read</code></td><td><code>read_path</code> glob (e.g., <code>src/**/*.ts</code>)</td></tr>
+<tr><td><code>edit_file(path, edits)</code></td><td>Your machine, with diff verify</td><td><code>edit_path</code> glob</td></tr>
+<tr><td><code>bash(command)</code></td><td>Your shell</td><td><code>bash_pattern</code> regex (e.g., <code>^git (status|diff|log)</code>)</td></tr>
+<tr><td><code>mcp_call(server, tool, params)</code></td><td>Your local MCP server</td><td><code>mcp_server</code> name allowlist</td></tr>
+</table>
+
+You set the rules before the task runs. The donor's Claude can ask for anything; **only what you allowed will execute.**
+
+### Key management — receipts, not promises
+
+<table>
+<tr>
+<th align="left">Key</th>
+<th align="left">Where it lives</th>
+<th align="left">When it dies</th>
+</tr>
+<tr><td>Your device ed25519 (long-lived)</td><td>Your OS keychain</td><td><code>nexvora-daemon logout</code></td></tr>
+<tr><td>Donor device ed25519 (long-lived)</td><td>Their OS keychain</td><td>Their logout</td></tr>
+<tr><td>Per-task X25519 (yours)</td><td>Your daemon RAM</td><td>Task ends</td></tr>
+<tr><td>Per-task X25519 (donor's)</td><td>Their daemon RAM</td><td>Task ends</td></tr>
+<tr><td>Session key (HKDF-derived)</td><td>Both sides' RAM, identical</td><td>Task ends</td></tr>
+<tr><td><b>The relay's copy of any of the above</b></td><td><b>none</b> - relay holds zero key material</td><td>n / a</td></tr>
+</table>
+
+### Silo Mode — for the really sensitive stuff
+
+For legal / medical / financial / proprietary-IP work, switch on **Silo Mode** before submitting. A fresh AES-256-GCM data key is generated per task, wrapped to the assigned donor's RSA public key, and the encrypted context is **auto-deleted 24 hours after the task completes**. The donor's Claude can decrypt and read it for the duration of the work; nobody else can — including us — after the window closes.
+
+> **TL;DR:** the relay forwards opaque bytes. Your tools run on your machine. Your keys live in your keychain. The donor's Claude is rented inference; everything else stays with you.
 
 ---
 
